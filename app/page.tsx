@@ -737,8 +737,35 @@ export default function Page() {
         {recentInspectors[0] && recentInspectors[1] && (
           <div className="recent-box"><span>최근 점검자</span><strong>{recentInspectors[0]} · {recentInspectors[1]}</strong></div>
         )}
-        <label>점검자 1<select value={inspector1} onChange={(e) => setInspector1(e.target.value)}><option value="">점검자를 선택하세요</option><option value="">점검자를 선택하세요</option>{activeStaff.map((person) => <option key={person.id} value={person.name}>{person.name}</option>)}</select></label>
-        <label>점검자 2<select value={inspector2} onChange={(e) => setInspector2(e.target.value)}><option value="">점검자를 선택하세요</option><option value="">점검자를 선택하세요</option>{activeStaff.map((person) => <option key={person.id} value={person.name}>{person.name}</option>)}</select></label>
+        <label>
+  점검자 1
+  <select
+    value={inspector1}
+    onChange={(e) => setInspector1(e.target.value)}
+  >
+    <option value="">점검자를 선택하세요</option>
+    {activeStaff.map((person) => (
+      <option key={person.id} value={person.name}>
+        {person.name}
+      </option>
+    ))}
+  </select>
+</label>
+
+<label>
+  점검자 2
+  <select
+    value={inspector2}
+    onChange={(e) => setInspector2(e.target.value)}
+  >
+    <option value="">점검자를 선택하세요</option>
+    {activeStaff.map((person) => (
+      <option key={person.id} value={person.name}>
+        {person.name}
+      </option>
+    ))}
+  </select>
+</label>
         <button className="primary-button" onClick={startChecklist}>이대로 점검</button>
       </article>
     </section>}
